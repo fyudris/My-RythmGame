@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0jn7pc7oqu6l"]
+[gd_scene load_steps=3 format=3 uid="uid://b0jn7pc7oqu6l"]
 
+[ext_resource type="PackedScene" uid="uid://c73a24vws6x7f" path="res://Scenes/note.tscn" id="1_c8f27"]
 [ext_resource type="PackedScene" uid="uid://c11b3j076uoe7" path="res://Scenes/marker_arrow.tscn" id="1_gh18v"]
 
 [node name="Game" type="Node2D"]
 
-[node name="ArrowNote" parent="." instance=ExtResource("1_gh18v")]
+[node name="Note" parent="." instance=ExtResource("1_c8f27")]
+position = Vector2(416, 928)
+
+[node name="MarkerLeft" parent="." instance=ExtResource("1_gh18v")]
 position = Vector2(288, 224)
+rotation = 1.5708
+
+[node name="MarkerDown" parent="." instance=ExtResource("1_gh18v")]
+position = Vector2(416, 224)
+
+[node name="MarkerUp" parent="." instance=ExtResource("1_gh18v")]
+position = Vector2(544, 224)
+
+[node name="MarkerRight" parent="." instance=ExtResource("1_gh18v")]
+position = Vector2(672, 224)

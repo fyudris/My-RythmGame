@@ -9,6 +9,9 @@ var okay = 0
 var missed = 0
 var grade = "NA"
 
+#signal beat
+#signal measure
+
 
 func set_score(new):
 	score = new
