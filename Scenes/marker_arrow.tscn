@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://c11b3j076uoe7"]
+
+[ext_resource type="Texture2D" uid="uid://b17xwehg6fqdf" path="res://Assets/marker_arrows/_Fallback Receptor go 2x1.png" id="1_bp6ss"]
+[ext_resource type="Script" path="res://Scripts/marker_arrow.gd" id="2_pvhhq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd22h"]
+atlas = ExtResource("1_bp6ss")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rr03"]
+atlas = ExtResource("1_bp6ss")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yotd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd22h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rr03")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0bcm"]
+size = Vector2(20, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh1ts"]
+size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp0ds"]
+size = Vector2(20, 48)
+
+[node name="MarkerArrow" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_yotd2")
+autoplay = "default"
+frame_progress = 0.987169
+script = ExtResource("2_pvhhq")
+
+[node name="PerfectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectArea"]
+shape = SubResource("RectangleShape2D_k0bcm")
+
+[node name="Good" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Good"]
+shape = SubResource("RectangleShape2D_oh1ts")
+
+[node name="OkayArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OkayArea"]
+shape = SubResource("RectangleShape2D_sp0ds")
+
+[node name="PushTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="PerfectArea" to="." method="_on_perfect_area_area_entered"]
+[connection signal="area_exited" from="PerfectArea" to="." method="_on_perfect_area_area_exited"]
+[connection signal="area_entered" from="Good" to="." method="_on_good_area_entered"]
+[connection signal="area_exited" from="Good" to="." method="_on_good_area_exited"]
+[connection signal="area_entered" from="OkayArea" to="." method="_on_okay_area_area_entered"]
+[connection signal="area_exited" from="OkayArea" to="." method="_on_okay_area_area_exited"]
+[connection signal="timeout" from="PushTimer" to="." method="_on_push_timer_timeout"]

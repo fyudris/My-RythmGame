@@ -1,0 +1,3 @@
+Anime-Instrumental-01:
+Tempo = 172
+Half-Time = 86

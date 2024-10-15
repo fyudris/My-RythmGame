@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dmo60w8x2qep3"
+
+[deps]
+
+files=["res://Audio/Metadata/song-01/halftime_beat.LABEL.translation"]
+
+source_file="res://Audio/Metadata/song-01/halftime_beat.csv"
+dest_files=["res://Audio/Metadata/song-01/halftime_beat.LABEL.translation"]
+
+[params]
+
+compress=true
+delimiter=0

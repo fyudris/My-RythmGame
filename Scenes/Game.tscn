@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0jn7pc7oqu6l"]
+
+[ext_resource type="PackedScene" uid="uid://c11b3j076uoe7" path="res://Scenes/marker_arrow.tscn" id="1_gh18v"]
+
+[node name="Game" type="Node2D"]
+
+[node name="ArrowNote" parent="." instance=ExtResource("1_gh18v")]
+position = Vector2(288, 224)
